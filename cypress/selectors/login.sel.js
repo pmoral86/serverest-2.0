@@ -4,4 +4,5 @@ export const loginSelectors = {
   loginButton: '[data-testid="entrar"]',
   home: '[data-testid="home"]',
   logoutButton: '[data-testid="logout"]',
+  errorAlert: '[role="alert"]',
 };

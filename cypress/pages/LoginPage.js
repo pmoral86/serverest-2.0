@@ -34,6 +34,10 @@ class LoginPage {
   getLoginButton() {
     return cy.get(loginSelectors.loginButton);
   }
+
+  getErrorAlert() {
+    return cy.get(loginSelectors.errorAlert);
+  }
 }
 
 export default new LoginPage();
