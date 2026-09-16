@@ -1,20 +1,28 @@
 import LoginPage from '../../pages/LoginPage';
 import HomePage from '../../pages/HomePage';
 import ProductPage from '../../pages/ProductPage';
-import { createTestUser } from '../../support/userApi';
+import { createUser } from '../../support/api/usersApi';
+import { createUserData } from '../../support/factories/user.factory';
+import { createProductUiData } from '../../support/factories/productUi.factory';
 
 describe('E2E-03 - Product Creation', () => {
   it('should create a product and display it in the product list', () => {
-    const timestamp = Date.now();
+    const user = createUserData({
+      administrator: 'true',
+      prefix: 'QA AMBEV E2E',
+    });
 
-    const product = {
-      name: `Produto QA AMBEV ${timestamp}`,
-      price: 100,
-      description: 'Produto criado automaticamente pelo teste',
-      quantity: 10,
-    };
+    const product = createProductUiData();
 
-    createTestUser().then((user) => {
+    createUser(user).then((response) => {
+      expect(response.status).to.eq(201);
+      expect(response.body.message).to.eq(
+        'Cadastro realizado com sucesso'
+      );
+      expect(response.body._id)
+        .to.be.a('string')
+        .and.not.be.empty;
+
       LoginPage.visit();
 
       LoginPage.login(user.email, user.password);

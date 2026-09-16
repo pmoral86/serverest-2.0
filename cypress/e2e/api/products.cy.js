@@ -1,24 +1,17 @@
 import { createUser } from '../../support/api/usersApi';
 import { loginUser } from '../../support/api/loginApi';
 import { createProduct } from '../../support/api/productsApi';
+import { createUserData } from '../../support/factories/user.factory';
+import { createProductData } from '../../support/factories/product.factory';
 
 describe('API - Products', () => {
   it('should allow an administrator to create a product', () => {
-    const timestamp = Date.now();
+    const user = createUserData({
+        administrator: 'true',
+        prefix: 'QA AMBEV Admin',
+  });
 
-    const user = {
-      nome: `QA AMBEV Admin ${timestamp}`,
-      email: `qa.ambev.admin.${timestamp}@example.com`,
-      password: 'Qa123456!',
-      administrador: 'true',
-    };
-
-    const product = {
-      nome: `Produto API QA AMBEV ${timestamp}`,
-      preco: 100,
-      descricao: 'Produto criado através da API',
-      quantidade: 10,
-    };
+  const product = createProductData();
 
     createUser(user).then((userResponse) => {
       expect(userResponse.status).to.eq(201);

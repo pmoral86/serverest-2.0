@@ -1,15 +1,9 @@
 import { createUser } from '../../support/api/usersApi';
+import { createUserData } from '../../support/factories/user.factory';
 
 describe('API - Users - Negative Scenarios', () => {
   it('should not allow creating two users with the same email', () => {
-    const timestamp = Date.now();
-
-    const user = {
-      nome: `QA AMBEV ${timestamp}`,
-      email: `qa.ambev.${timestamp}@example.com`,
-      password: 'Qa123456!',
-      administrador: 'false',
-    };
+    const user = createUserData();
 
     createUser(user).then((firstResponse) => {
       expect(firstResponse.status).to.eq(201);
