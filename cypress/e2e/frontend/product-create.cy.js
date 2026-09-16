@@ -23,9 +23,7 @@ describe('E2E-03 - Product Creation', () => {
         .to.be.a('string')
         .and.not.be.empty;
 
-      LoginPage.visit();
-
-      LoginPage.login(user.email, user.password);
+      cy.loginAs(user);
 
       LoginPage.getHomeLink()
         .should('be.visible')

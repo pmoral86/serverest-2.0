@@ -18,9 +18,7 @@ describe('E2E-01 - Login and Logout', () => {
         .to.be.a('string')
         .and.not.be.empty;
 
-      LoginPage.visit();
-
-      LoginPage.login(user.email, user.password);
+      cy.loginAs(user);
 
       LoginPage.getHomeLink()
         .should('be.visible')
