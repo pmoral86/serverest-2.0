@@ -222,7 +222,6 @@ O projeto foi estruturado considerando:
 
 ## 11. Autor
 
-Paulo Moral
-QA Engineer
+Paulo Moral - QA Engineer
 
 ^^
