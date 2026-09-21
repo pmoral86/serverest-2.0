@@ -55,7 +55,7 @@ npm --version
 Clone o repositório:
 
 ```bash
-git clone https://github.com/pmoral86/serverest-AMBEV.git
+git clone https://github.com/pmoral86/serverest-2.0.git
 cd serverest-AMBEV
 npm install
 ```
