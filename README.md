@@ -1,4 +1,4 @@
-# Cypress QA Challenge — Ambev
+# Cypress QA Challenge
 
 Projeto de automação de testes desenvolvido como parte de um desafio técnico para a posição de **QA**.
 
